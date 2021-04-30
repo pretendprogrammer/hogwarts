@@ -11,7 +11,7 @@ const Nav = (props) => {
       </div>
       <span className="normalText">A React App for County Fair Hog Fans</span>
       <br></br>
-      <button onClick={props.handleFilterClick}></button>
+      <button onClick={props.handleFilterClick}>Show me the grease!</button>
     </div>
   );
 };
