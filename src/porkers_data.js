@@ -21,7 +21,7 @@ const hogs = [
     'highest medal achieved': 'gold'
   },
   {
-    name: 'Piggy smalls',
+    name: 'Piggy Smalls',
     specialty: 'Rapping',
     greased: true,
     weight: 5.1,
