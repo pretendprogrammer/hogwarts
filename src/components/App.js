@@ -6,20 +6,25 @@ import PigCard from "./PigCard";
 
 class App extends Component {
   state = {
-    filterGreased: false
+    filterGreased: false,
+    sortByName: false,
+    sortByWeight: false
   }
 
-  handleFilterClick = () => {
-    this.setState({filterGreased: !this.state.filterGreased})
+  handleButtonClick = (event) => {
+    let button = event.target.name
+    this.setState({[button]: !this.state[button]})
   }
 
   render() {
     let pigArray
     return (
       <div className="App">
-        <Nav handleFilterClick={this.handleFilterClick}/>
+        <Nav handleButtonClick={this.handleButtonClick}/>
         <div className="index">
-          {this.state.filterGreased ? pigArray = hogs.filter((object => object.greased)) : pigArray = hogs,
+          {this.state.filterGreased ? pigArray = hogs.filter((object => object.greased)) :
+          this.state.sortByWeight ? pigArray = hogs.sort((objA, objB) => objA.weight - objB.weight) :
+          this.state.sortByName ? pigArray = hogs.sort((objA, objB) => objA.name.localeCompare(objB.name)) : pigArray = hogs,
           pigArray.map(hogObject => <PigCard hogObject={hogObject}/>)}
         </div>
       </div>
